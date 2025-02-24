@@ -15,14 +15,14 @@ end
 
 Returns the current time in milliseconds from the cached value.
 """
-time_millis(c::CachedEpochClock) = @atomic c.time_ns ÷ 1_000_000
+time_millis(c::CachedEpochClock) = (@atomic c.time_ns) ÷ 1_000_000
 
 """
     time_micros(c::CachedEpochClock)
 
 Returns the current time in microseconds from the cached value.
 """
-time_micros(c::CachedEpochClock) = @atomic c.time_ns ÷ 1_000
+time_micros(c::CachedEpochClock) = (@atomic c.time_ns) ÷ 1_000
 
 """
     time_nanos(c::CachedEpochClock)
