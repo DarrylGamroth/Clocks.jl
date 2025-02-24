@@ -34,8 +34,9 @@ Returns the current time in nanoseconds.
 """
 function time_nanos end
 
-include("cachedepochclock.jl")
 include("epochclock.jl")
 include("monotonicclock.jl")
+
+include("cachedepochclock.jl")
 
 end # module Clocks
