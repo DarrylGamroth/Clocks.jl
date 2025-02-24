@@ -3,7 +3,7 @@ module Clocks
 using Hwloc
 using LibUV_jll
 
-export AbstractClock, CachedEpochClock, EpochClock, MonotonicClock, time_millis, time_micros, time_nanos, update!, advance!
+export AbstractClock, CachedEpochClock, EpochClock, MonotonicClock, time_millis, time_micros, time_nanos, update!, advance!, fetch!
 
 const CACHE_LINE_SIZE::Int = maximum(cachelinesize())
 const CACHE_LINE_PAD::Int = CACHE_LINE_SIZE - sizeof(Int64)

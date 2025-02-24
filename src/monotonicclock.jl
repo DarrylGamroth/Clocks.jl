@@ -10,14 +10,14 @@ struct MonotonicClock <: AbstractClock end
 
 Returns the current time in milliseconds.
 """
-time_millis(::MonotonicClock) = time_ns() ÷ 1_000_000
+@inline time_millis(::MonotonicClock) = time_ns() ÷ 1_000_000
 
 """
     time_micros(::MonotonicCLock)
 
 Returns the current time in microseconds.
 """
-time_micros(::MonotonicClock) = time_ns() ÷ 1_000
+@inline time_micros(::MonotonicClock) = time_ns() ÷ 1_000
 
 
 """
@@ -25,4 +25,4 @@ time_micros(::MonotonicClock) = time_ns() ÷ 1_000
 
 Returns the current time in nanoseconds.
 """
-time_nanos(::MonotonicClock) = time_ns()
+@inline time_nanos(::MonotonicClock) = time_ns()

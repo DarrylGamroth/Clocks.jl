@@ -31,7 +31,7 @@ struct EpochClock <: AbstractClock end
 
 Returns the current time in milliseconds since the epoch.
 """
-function time_millis(::EpochClock)
+@inline function time_millis(::EpochClock)
     ts = epoch_time()
     return ts.tv_sec * 1_000 + ts.tv_nsec ÷ 1_000_000
 end
@@ -41,7 +41,7 @@ end
 
 Returns the current time in microseconds since the epoch.
 """
-function time_micros(::EpochClock)
+@inline function time_micros(::EpochClock)
     ts = epoch_time()
     return ts.tv_sec * 1_000_000 + ts.tv_nsec ÷ 1_000
 end
@@ -51,7 +51,7 @@ end
 
 Returns the current time in nanoseconds since the epoch.
 """
-function time_nanos(::EpochClock)
+@inline function time_nanos(::EpochClock)
     ts = epoch_time()
     return ts.tv_sec * 1_000_000_000 + ts.tv_nsec
 end
