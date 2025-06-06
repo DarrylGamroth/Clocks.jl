@@ -1,7 +1,7 @@
 name = "Clocks"
 uuid = "6b5ade5d-6e95-4584-b343-73eec2e8782b"
 authors = ["Darryl Gamroth <dgamroth@rubus.ca>"]
-version = "0.1.4"
+version = "0.2.0"
 
 [deps]
 Hwloc = "0e44f5e4-bd66-52a0-8798-143a42290a1d"
