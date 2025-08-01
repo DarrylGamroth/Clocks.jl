@@ -1,5 +1,8 @@
 # Clocks.jl
 
+[![CI](https://github.com/DarrylGamroth/Clocks.jl/actions/workflows/ci.yml/badge.svg)](https://github.com/DarrylGamroth/Clocks.jl/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/DarrylGamroth/Clocks.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/DarrylGamroth/Clocks.jl)
+
 This package provides different clock implementations for Julia.
 
 ## Usage
