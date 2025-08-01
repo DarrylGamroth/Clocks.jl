@@ -1,3 +1,5 @@
+using LibUV_jll
+
 struct UVTimespec
     tv_sec::Int64
     tv_nsec::Int32

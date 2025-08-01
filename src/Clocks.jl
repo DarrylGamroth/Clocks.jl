@@ -1,11 +1,10 @@
 module Clocks
 
 using Hwloc
-using LibUV_jll
 
 export AbstractClock, CachedEpochClock, EpochClock, MonotonicClock, time_millis, time_micros, time_nanos, update!, advance!, fetch!
 
-const CACHE_LINE_SIZE::Int = maximum(cachelinesize())
+const CACHE_LINE_SIZE::Int = cachelinesize(:L1)
 const CACHE_LINE_PAD::Int = CACHE_LINE_SIZE - sizeof(Int64)
 
 """
@@ -34,7 +33,13 @@ Returns the current time in nanoseconds.
 """
 function time_nanos end
 
-include("epochclock.jl")
+# Use high-precision LibUV implementation on Julia 1.11+, fallback on older versions
+if VERSION >= v"1.11"
+    using LibUV_jll
+    include("epochclock.jl")
+else
+    include("epochclock_fallback.jl")
+end
 include("monotonicclock.jl")
 
 include("cachedepochclock.jl")
