@@ -125,12 +125,15 @@ allocated_sample(clock) = @allocated sample!(clock)
         epoch = ScriptedEpochNanoClock(fill(1_000, 100))
         @test OffsetEpochNanoClock(epoch).epoch_clock === epoch
 
-        clock = OffsetEpochNanoClock()
         before = epoch_nanos()
+        clock = OffsetEpochNanoClock()
         value = @inferred time_nanos(clock)
         after = epoch_nanos()
 
-        @test before - 1_000_000 <= value <= after + 1_000_000
+        # Match the direct epoch-clock tests: tolerate a wall-clock adjustment
+        # and the lower-resolution floating-point fallback on Julia 1.10.
+        tolerance_ns = 1_000_000_000
+        @test before - tolerance_ns <= value <= after + tolerance_ns
         @test @inferred(is_within_threshold(clock)) isa Bool
 
         time_nanos(clock)
