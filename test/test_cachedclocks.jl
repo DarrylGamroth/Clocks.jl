@@ -21,7 +21,9 @@
     @test @inferred(time_nanos(nano)) == 999_999
 
     @test update!(epoch, Int32(42)) == 42
-    @test advance!(nano, Int16(2)) == 1_000_001
+    @test advance!(epoch, Int16(2)) == 44
+    @test update!(nano, Int32(7)) == 7
+    @test advance!(nano, Int16(2)) == 9
 
     @test fieldoffset(CachedEpochClock, 2) == Clocks.CACHE_LINE_PAD
     @test fieldoffset(CachedNanoClock, 2) == Clocks.CACHE_LINE_PAD

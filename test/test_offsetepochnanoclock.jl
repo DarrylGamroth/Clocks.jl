@@ -119,6 +119,9 @@ allocated_sample(clock) = @allocated sample!(clock)
     end
 
     @testset "system sources and hot path" begin
+        epoch = ScriptedEpochNanoClock(fill(1_000, 100))
+        @test OffsetEpochNanoClock(epoch).epoch_clock === epoch
+
         clock = OffsetEpochNanoClock()
         before = epoch_nanos()
         value = @inferred time_nanos(clock)
