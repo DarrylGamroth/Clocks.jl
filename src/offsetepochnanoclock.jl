@@ -1,3 +1,9 @@
+# Copyright 2014-2025 Real Logic Limited.
+# Copyright 2025-2026 Rubus Technologies Inc.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Ported from Agrona and substantially modified for Julia.
+
 const DEFAULT_MAX_MEASUREMENT_RETRIES::Int = 100
 const DEFAULT_MEASUREMENT_THRESHOLD_NS::Int64 = 250
 const DEFAULT_RESAMPLE_INTERVAL_NS::Int64 = 3_600_000_000_000

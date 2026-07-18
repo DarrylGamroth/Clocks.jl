@@ -1,3 +1,6 @@
+# Copyright 2025-2026 Rubus Technologies Inc.
+# SPDX-License-Identifier: Apache-2.0
+
 mutable struct ScriptedEpochNanoClock <: AbstractEpochNanoClock
     values::Vector{Int64}
     index::Int

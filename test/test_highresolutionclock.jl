@@ -1,3 +1,6 @@
+# Copyright 2025-2026 Rubus Technologies Inc.
+# SPDX-License-Identifier: Apache-2.0
+
 function test_epoch_read(read_clock, units_per_second)
     before = time()
     value = read_clock()

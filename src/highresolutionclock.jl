@@ -1,3 +1,6 @@
+# Copyright 2025-2026 Rubus Technologies Inc.
+# SPDX-License-Identifier: Apache-2.0
+
 struct UVTimespec
     tv_sec::Int64
     tv_nsec::Int32

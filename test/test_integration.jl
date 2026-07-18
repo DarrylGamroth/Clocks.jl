@@ -1,3 +1,6 @@
+# Copyright 2025-2026 Rubus Technologies Inc.
+# SPDX-License-Identifier: Apache-2.0
+
 struct FixedEpochClock <: AbstractEpochClock
     time_ms::Int64
 end

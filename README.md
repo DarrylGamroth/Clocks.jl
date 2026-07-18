@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/DarrylGamroth/Clocks.jl/actions/workflows/ci.yml/badge.svg)](https://github.com/DarrylGamroth/Clocks.jl/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/DarrylGamroth/Clocks.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/DarrylGamroth/Clocks.jl)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
 Clocks.jl provides allocation-free clock providers modeled on Agrona's clock
 contracts and expressed with Julia's type system and multiple dispatch.
@@ -108,3 +109,11 @@ topology discovery or adding a runtime dependency.
 - Construct `CachedEpochClock()` without a source and update it in
   milliseconds.
 - `fetch!` was removed; source refresh policy belongs to the owning agent.
+
+## License
+
+Clocks.jl is licensed under the
+[Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+Portions of the clock-provider design and implementation are adapted from
+[Agrona](https://github.com/aeron-io/agrona), copyright Real Logic Limited.
+See [LICENSE](LICENSE) and [NOTICE](NOTICE) for details.
