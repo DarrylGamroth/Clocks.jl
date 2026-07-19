@@ -1,12 +1,13 @@
+# Copyright 2025-2026 Rubus Technologies Inc.
+# SPDX-License-Identifier: Apache-2.0
+
 using Test
 using Clocks
 
-# Helper function to detect if we're using high-precision LibUV implementation
-const IS_HIGH_PRECISION = VERSION >= v"1.11"
-
-@testset "Clocks.jl Tests" begin
-    include("test_epochclock.jl")
-    include("test_monotonicclock.jl")
-    include("test_cachedepochclock.jl")
+@testset "Clocks.jl" begin
+    include("test_highresolutionclock.jl")
+    include("test_systemclocks.jl")
+    include("test_offsetepochnanoclock.jl")
+    include("test_cachedclocks.jl")
     include("test_integration.jl")
 end
