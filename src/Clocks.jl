@@ -13,7 +13,9 @@ module Clocks
 export AbstractClock, AbstractEpochClock, AbstractEpochMicroClock,
     AbstractEpochNanoClock, AbstractNanoClock,
     SystemEpochClock, SystemEpochMicroClock, SystemEpochNanoClock,
-    SystemNanoClock, OffsetEpochNanoClock, CachedEpochClock, CachedNanoClock,
+    SystemNanoClock, OffsetEpochNanoClock,
+    CachedEpochClock, CachedEpochMicroClock, CachedEpochNanoClock,
+    CachedNanoClock,
     epoch_millis, epoch_micros, epoch_nanos,
     time_millis, time_micros, time_nanos,
     update!, advance!, sample!, is_within_threshold

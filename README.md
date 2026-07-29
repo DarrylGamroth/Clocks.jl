@@ -11,10 +11,10 @@ Each provider has one time domain and one unit:
 
 | Contract | Abstract provider | Concrete providers | Read function |
 |---|---|---|---|
-| Unix epoch milliseconds | `AbstractEpochClock` | `SystemEpochClock` | `time_millis` |
-| Unix epoch microseconds | `AbstractEpochMicroClock` | `SystemEpochMicroClock` | `time_micros` |
-| Unix epoch nanoseconds | `AbstractEpochNanoClock` | `SystemEpochNanoClock`, `OffsetEpochNanoClock` | `time_nanos` |
-| Monotonic nanosecond ticks | `AbstractNanoClock` | `SystemNanoClock` | `time_nanos` |
+| Unix epoch milliseconds | `AbstractEpochClock` | `SystemEpochClock`, `CachedEpochClock` | `time_millis` |
+| Unix epoch microseconds | `AbstractEpochMicroClock` | `SystemEpochMicroClock`, `CachedEpochMicroClock` | `time_micros` |
+| Unix epoch nanoseconds | `AbstractEpochNanoClock` | `SystemEpochNanoClock`, `OffsetEpochNanoClock`, `CachedEpochNanoClock` | `time_nanos` |
+| Monotonic nanosecond ticks | `AbstractNanoClock` | `SystemNanoClock`, `CachedNanoClock` | `time_nanos` |
 
 This separation prevents an arbitrary-origin monotonic value from being used
 as an epoch timestamp. The zero-field system providers are immutable values;
@@ -83,6 +83,11 @@ cached_epoch = CachedEpochClock()
 update!(cached_epoch, time_millis(epoch_source))
 now_ms = time_millis(cached_epoch)
 advance!(cached_epoch, 1)
+
+epoch_nano_source = SystemEpochNanoClock()
+cached_epoch_nano = CachedEpochNanoClock()
+update!(cached_epoch_nano, time_nanos(epoch_nano_source))
+now_epoch_ns = time_nanos(cached_epoch_nano)
 
 nano_source = SystemNanoClock()
 cached_nano = CachedNanoClock()
