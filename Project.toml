@@ -1,7 +1,7 @@
 name = "Clocks"
 uuid = "6b5ade5d-6e95-4584-b343-73eec2e8782b"
 authors = ["Darryl Gamroth <dgamroth@rubus.ca>"]
-version = "0.3.0"
+version = "0.4.0"
 
 [compat]
 Test = "1.10"
